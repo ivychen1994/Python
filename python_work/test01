@@ -1,0 +1,518 @@
+from car import ElectricCar
+
+print("Hello Python world!")
+
+# 变量
+message = "Hello Python Crash Course world!"
+print(message)
+# 字符串
+name = "ada lovelace"
+print(name.title())  # title以首字母大寫的方式顯示每個單詞
+print(name.upper())
+print(name.lower())
+
+# 字符串拼接
+first_name = "ada"
+second_name = "lovelace"
+full_name = first_name + " " + second_name
+message = "  Hello," + full_name.title() + "!  "
+print(message)
+
+# 制表符
+print("\tPython")
+
+# 刪除空白
+print(message.lstrip())
+print(message.rstrip())
+print(message.strip())
+
+# 兩個乘號表示乘方運算
+print(3 ** 2)
+
+# str函數
+age = 23
+message = "Happy " + str(age) + "rd birthday"
+print(message)
+print(3 / 2)
+
+# python之禪 import this
+
+# 列表
+bicycles = ['trek', 'cannondale', 'redline', 'specialized']
+print(bicycles)
+print(bicycles[0].title())
+
+# 特殊語法，通過將指引指定爲-1,可讓python返回最後一個列表元素
+print(bicycles[-2].title())
+
+# 修改
+bicycles[0] = 'ducati'
+print(bicycles)
+# 添加
+bicycles.append('hhhhh')
+print(bicycles)
+# 插入
+bicycles.insert(3, 'ddddd')
+print(bicycles)
+# 刪除
+del bicycles[3]
+print(bicycles)
+
+# 使用pop刪除元素,刪除列表末尾元素，就像一個棧，就相當於彈出棧頂元素
+poppen_bicycles = bicycles.pop()
+print(bicycles)
+print(poppen_bicycles)
+
+# 使用pop彈出任意位置元素
+poppen_bicycles = bicycles.pop(0)
+print(bicycles)
+print(poppen_bicycles)
+
+# 根據值刪除元素,remove只刪除第一個指定的值，要刪除的值出現多次就需要循環
+bicycles.remove('cannondale')
+print(bicycles)
+
+# 使用sort對類表進行   [永久性]  排序
+cars = ['bmw', 'audi', 'toyota', 'subaru']
+cars.sort()
+print(cars)
+cars.sort(reverse=True)  # 傳遞參數reverse=True就能逆序
+print(cars)
+
+# 使用sorted對列表進行  [臨時]  排序4
+print(sorted(cars))
+print(cars)
+
+# 倒着打印列表
+cars.reverse()
+print(cars)
+
+# 長度
+print(len(cars))
+
+# 遍歷
+magicians = ['alice', 'david', 'caroliana']
+for magician in magicians:  # 每個縮進的代碼行都是循環的一部分
+    print(magician)
+    print(magician.title() + '\n')
+
+# 使用函數range,讓你輕鬆的創建數字
+for value in range(1, 5):
+    print(value)
+
+# 使用range創建數字列表
+numbers = list(range(1, 6))
+print(numbers)
+even_numbers = list(range(2, 11, 2))  # 打印1～10內的偶數
+print(even_numbers)
+
+# 打印1～10內的平方
+squares = []
+for value in range(1, 11):
+    squares.append(value ** 2)
+print(squares)
+
+# 對數字的統計計算
+digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+print(min(digits))
+print(max(digits))
+print(sum(digits))
+
+# 列表解析
+squares = [value ** 3 for value in range(1, 11)]
+print(squares)
+
+# 切片slice
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[0:3])
+print(players[1:4])
+print(players[:4])  # python從列表開頭開始
+print(players[2:])  # 從第3個元素到類表末尾的所有元素
+print(players[-3:])  # 打印最後三名隊員
+
+# 遍歷切片
+for player in players[:3]:
+    print(player.title())
+
+# 使用alice復制列表
+friend_players = players[:]
+players.append('cannoli')
+friend_players.append('ice cream')
+print(players)
+print(friend_players)
+
+# 直接復制，兩個變量指向了同一個列表
+friend2_players = players
+players.append('ice cream')
+friend2_players.append('cannoli')
+print(players)
+print(friend2_players)
+
+# python將不能改變的值稱爲不可變的，而不可變的列表稱爲元組
+dimensions = (200, 50)
+print(dimensions[0])
+print(dimensions[1])
+
+# dimensions[0]=250  錯誤
+for dimension in dimensions:
+    print(dimension)
+
+# 修改元組變量，給存儲元組的變量賦值
+dimensions = (400, 100)
+for dimension in dimensions:
+    print(dimension)
+
+# if語句(bmw全部大寫輸出，其餘字母開頭字母大寫)
+cars = ['audi', 'bmw', 'sprintubaru', 'toyota']
+for car in cars:
+    if car == 'bmw':
+        print(car.upper())
+    else:
+        print(car.title())
+
+# 檢查多個條件
+age = 20
+age1 = 22
+print(age >= 20 and age > 22)  # 用and表示&&
+print(age >= 20 or age > 22)  # 用or表示||
+
+# 檢查特定值是否包含在列表中
+requested_toppings = ['mushrooms', 'onions', 'pineapple']
+print('mushrooms' in requested_toppings)
+print('mushroom' in requested_toppings)
+
+# 檢查特定值是否不包含在列表中
+banned_users = ['andrew', 'carolina', 'david']
+user = 'marie'
+if user not in banned_users:
+    print(user.title())
+print("Is user=='marie'?I predict True.")
+# if-elif-else
+if age < 18:
+    print(0)
+elif age < 21:
+    print(1)
+else:
+    print(2)
+
+# 字典,一系列鍵-值對
+alien_0 = {'color': 'green', 'points': 5}
+print(alien_0['color'])
+print(alien_0['points'])
+
+# 添加鍵-值對
+alien_0['x_position'] = 0
+alien_0['y_position'] = 25
+print(alien_0)
+
+# 刪除鍵值對
+del alien_0['points']
+print(alien_0)
+
+# 由類似對象組成的字典
+favorite_languages = {
+    'jen': 'python',
+    'sarah': 'c',
+    'edward': 'ruby',
+    'phil': 'python'
+}
+print(favorite_languages['sarah'])
+
+# 用for遍歷這個字典
+for name, language in favorite_languages.items():
+    print(name.title() + "'s favorite language is" +
+          language.title() + ".")
+
+# 遍歷字典中的所有鍵
+friends = ['phil', 'sarah']
+for name in favorite_languages.keys():
+    print(name.title())
+    if name in friends:
+        print("Hi " + name.title() +
+              ",I see your favorite language is " +
+              favorite_languages[name].title() + "!")
+
+# 按順序遍歷字典中的所有鍵
+for name in sorted(favorite_languages.keys()):
+    print(name.title() + ",thank you for taking the poll")
+
+# 遍歷字典中的所有鍵
+for language in favorite_languages.values():
+    print(language.title())
+print("\n")
+
+# 重復元素的列表調用set(),可讓python找出列表中獨一無二的元素
+for language in set(favorite_languages.values()):
+    print(language.title())
+print("\n")
+
+# 字典列表
+alien_0 = {'color': 'green', 'points': 5}
+alien_1 = {'color': 'yellow', 'points': 10}
+alien_2 = {'color': 'red', 'points': 15}
+aliens = [alien_0, alien_1, alien_2]
+for alien in aliens:
+    print(alien)
+
+# 用range生成30個外星人
+aliens = []
+for alien_number in range(30):
+    new_alien = {'color': 'green', 'points': 2, 'speed': 'slow'}
+    aliens.append(new_alien)
+# 顯示創建了多少個外星人
+print(len(aliens))
+# 將前三個外星人修改成黃色的，速度爲中等且值10個點
+for alien in aliens[0:3]:
+    if alien['color'] == 'green':
+        alien['color'] = 'yellow'
+        alien['speed'] = 'medium'
+        alien['points'] = 10
+    elif alien['color'] == 'yellow':
+        alien['color'] = 'red'
+        alien['speed'] = 'fast'
+        alien['points'] = 15
+# 顯示前五個外星人
+for alien in aliens[:5]:
+    print(alien)
+print("\n")
+
+# 在字典中存儲列表
+pizza = {
+    'crust': 'thick',
+    'toppings': ['mushrooms', 'extra cheese']
+}
+for topping in pizza['toppings']:
+    print("\t" + topping)
+
+favorite_languages = {
+    'jen': ['python', 'ruby'],
+    'sarah': ['c'],
+    'edward': ['ruby', 'go'],
+    'phil': ['python', 'haskell']
+}
+for name, languages in favorite_languages.items():
+    print("\n" + name.title() + "'s favorite languages are:")
+    for language in languages:
+        print("\t" + language.title())
+print("\n")
+
+# 在字典中存儲字典
+users = {
+    'aeinstein': {
+        'first': 'albert',
+        'last': 'einstein',
+        'location': 'princeton'
+    },
+    'mcurie': {
+        'first': 'marie',
+        'last': 'curie',
+        'location': 'paris'
+    }
+}
+for username, user_info in users.items():
+    print("\nUsername:" + username)
+    full_name = user_info['first'] + " " + user_info['last']
+    location = user_info["location"]
+    print("\tFull name:" + full_name.title())
+    print("\tLocation:" + location.title())
+
+# 函數input
+# message=input("Tell me something,and I will repeat it back to you:")
+print(message)
+
+# 使用while循環
+current_number = 1
+while current_number <= 5:
+    print(current_number)
+    current_number += 1
+
+# 使用標志和break
+prompt = "\nPlease enter the name of a city you have visited"
+prompt += "\n(Enter 'quit' when you are finished.)"
+while True:
+    # city=input(prompt)
+    city = "quit"
+    if city == 'quit':
+        break
+    else:
+        print("I'd love to go to" + city.title() + "!")
+
+# 在列表之間移動元素
+unconfirmed_users = ['alice', 'brian', 'candace']
+confirmed_users = []
+while unconfirmed_users:
+    current_user = unconfirmed_users.pop()
+    print("Verifying user:" + current_user.title())
+    confirmed_users.append(current_user)
+
+# 顯示所有已驗證的用戶
+print("\nThe following users have been confirmed")
+for confirmed_user in confirmed_users:
+    print(confirmed_user.title())
+
+# 刪除包含特定值的所有列表元素
+pets = ['dog', 'cat', 'dog', 'goldfish', 'cat', 'rabbit', 'cat']
+while 'cat' in pets:
+    pets.remove('cat')
+print(pets)
+print("\n")
+
+
+# 函數
+def greet_user():
+    """顯示簡單的問候與"""
+    print("Hello")
+
+
+greet_user()
+
+
+# 向函數傳遞信息
+def greet_user(username):
+    """顯示簡單的問候語"""
+    print("Hello, " + username.title() + "!")
+
+
+greet_user('jesse')
+
+
+# 關鍵字實參
+def describe_pet(animal_type, pet_name):
+    """顯示寵物的信息"""
+    print("\nI have a" + animal_type + ".")
+    print("My " + animal_type + "'s name is " + pet_name.title() + ".")
+
+
+describe_pet(pet_name='harry', animal_type='hamster')
+
+
+# 默認值
+def describe_pets(pet_name, animal_type='dog'):
+    """顯示寵物的信息"""
+    print("\nI have a " + animal_type + ".")
+    print("My " + animal_type + "'s name is " + pet_name.title() + ".")
+
+
+describe_pets(pet_name='willie')
+describe_pets('willie')
+
+
+# 返回值
+def get_formatted_name(first_name, last_name):
+    """返回整潔的姓名"""
+    full_name = first_name + ' ' + last_name
+    return full_name
+
+
+musician = get_formatted_name('jimi', 'hendrix')
+print(musician)
+print("\n")
+
+
+# 傳遞任意數量的實參
+def make_pizza(*toppings):
+    """打印顧客點的所有配料"""
+    print(toppings)
+
+
+make_pizza('pepperoni')
+make_pizza('mushrooms', 'green peppers', 'extra cheese')
+# 循環,結合使用位置實參和任意數量實參
+import pizza
+
+pizza.make_pizza(16, 'pepperoni')
+pizza.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+print("\n")
+
+
+# 使用任意數量的關鍵字實參
+def build_profile(first, last, **user_info):
+    """創建一個字典，其中包含我們知道的有關用戶的一切"""
+    profile = {}
+    profile['first_name'] = first
+    profile['last_name'] = last
+    for key, value in user_info.items():
+        profile[key] = value
+    return profile
+
+
+user_profile = build_profile('albert', 'einstein',
+                             location='princeton',
+                             field='physics')
+print(user_profile)
+
+# 導入特定函數
+# from module_name import function_name
+# from module_name import function_0,function_1,function_2
+
+# 使用as給函數指定別名
+from pizza import make_pizza as mp
+
+mp(16, 'pepperoni')
+mp(12, 'mushrooms', 'green peppers', 'extra cheese')
+# 給模塊指定別名
+import pizza as p
+
+p.make_pizza(16, 'pepperoni')
+p.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+# 導入模塊中的所有函數
+from pizza import *
+
+make_pizza(13, 'pepperoni')
+make_pizza(15, 'mushrooms', 'green peppers', 'extra cheese')
+print("\n")
+
+
+# 创建Dog类
+class Dog():
+    """一次模拟小狗的简单尝试"""
+
+    def __init__(self, name, age):
+        """初始化属性name和age"""
+        self.name = name
+        self.age = age
+
+    def sit(self):
+        """模拟小狗被命令时蹲下"""
+        print(self.name.title() + " is now sitting.")
+
+    def roll_over(self):
+        """模拟小狗被命令时打滚"""
+        print(self.name.title() + " rolled over!")
+
+
+my_dog = Dog('willie', 6)
+my_dog.sit()
+my_dog.roll_over()
+
+
+# Car类继承
+my_tesla=ElectricCar('tesla','models',2016)
+print(my_tesla.get_descriptive_name())
+my_tesla.battery.describe_battery()
+
+#异常
+try:
+    print(5/0)
+except ZeroDivisionError:
+    print("You can't divide by zerro")
+#else代码块
+print("Give me two numbers,and I'll divide them.")
+print("Enter 'q' to quit.")
+while True:
+    break
+    first_number=input("\nFirst number:")
+    if first_number=='q':
+        break
+    second_number=input("Second number:")
+    try:
+        answer=int(first_number)/int(second_number)
+    except ZeroDivisionError:
+        print("You can't divide by 0.")
+    else:
+        print(answer)
+
+#分析文本
+title="Alice in Wonderland"
+title.split()
+print(title.split())
